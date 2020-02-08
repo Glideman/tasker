@@ -57,15 +57,20 @@
                     if(App::$showPage < App::$maxPages-2) $right_page = App::$showPage+2;
 
                     // страницы с левой до текущей
-                    for($i=$left_page; $i < App::$showPage; $i+=1)
-                        echo '<a href="main?page='.$i.'" class="btn btn-secondary">'.$i.'</a>';
+                    for($i=$left_page; $i < App::$showPage; $i+=1) {
+						App::$gets['page'] = $i;
+                        echo '<a href="?'.App::getParams().'" class="btn btn-secondary">'.$i.'</a>';
+                    }
 
                     // текущая страница
-                    echo '<a href="main?page='.App::$showPage.'" class="btn btn-secondary"><strong>'.App::$showPage.'</strong></a>';
+					App::$gets['page'] = App::$showPage;
+					echo '<a href="?'.App::getParams().'" class="btn btn-secondary"><strong>'.App::$showPage.'</strong></a>';
 
                     // страницы с текущей до правой
-                    for($i=App::$showPage+1; $i <= $right_page; $i+=1)
-                        echo '<a href="main?page='.$i.'" class="btn btn-secondary">'.$i.'</a>';
+                    for($i=App::$showPage+1; $i <= $right_page; $i+=1) {
+						App::$gets['page'] = $i;
+						echo '<a href="?'.App::getParams().'" class="btn btn-secondary">' . $i . '</a>';
+					}
 
                 }
 

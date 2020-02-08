@@ -17,7 +17,8 @@ class App {
 
     public static $pageTitle = "";
     public static $current_controller = "";
-    public static $current_action = "";
+	public static $current_action = "";
+	public static $gets = null;
 
 
 
@@ -28,6 +29,7 @@ class App {
         // TODO session id & cookies
         session_start();
 
+        App::copyParams();
 
         if(isset($_GET['order'])) App::$showOrder = $_GET['order'];
         if(isset($_GET['tpp'])) App::$showPerPage = $_GET['tpp'];
@@ -100,5 +102,19 @@ class App {
         $controller->$action_name();
     }
 
+
+	public static function copyParams() {
+    	App::$gets = array();
+		foreach ($_GET as $key => $value){
+			App::$gets[$key] = $value;}
+	}
+
+
+    public static function getParams() {
+    	$result = '';
+		foreach (App::$gets as $key => $value){
+			$result .= $key . "=" . $value . "&";}
+		return substr($result, 0, -1);
+	}
 
 }
