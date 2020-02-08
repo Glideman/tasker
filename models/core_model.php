@@ -5,7 +5,7 @@ class Core_model {
 
 	// коннект к базе данных
 	public static function db_connect() {
-		$db = mysqli_connect('localhost', 'id12521812_0xfc0de_tasker_user', '0xfc0de-tasker', 'id12521812_0xfc0de_tasker_db');
+		$db = mysqli_connect('localhost', 'id12521812_tasker_user', 'tasker_pass', 'id12521812_tasker_db');
 		if(!$db) return null;
 
 		$db->query("SET character_set_results = 'utf8'");
