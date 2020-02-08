@@ -108,6 +108,10 @@
   background-color: #fff;
 }
 
+.sb-form-input-field-er {
+  border-color: red;
+}
+
 .sb-form-input-field:focus {
   color: #495057;
   background-color: #fff;
