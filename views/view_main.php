@@ -13,10 +13,10 @@
             </div>
             <div class="col form-group mb-0">
                 <select class="form-control" id="task-sort-tpp" onchange="sort_tasks()">
-                    <option value="3" <?= (App::$showPerPage < 5) ? 'selected' : '' ?>>3</option>
-                    <option value="5" <?= (App::$showPerPage >= 5 && App::$showPerPage < 12) ? 'selected' : '' ?>>5</option>
-                    <option value="12" <?= (App::$showPerPage >= 12 && App::$showPerPage < 34) ? 'selected' : '' ?>>12</option>
-                    <option value="34" <?= (App::$showPerPage >= 34) ? 'selected' : '' ?>>34</option>
+                    <option value="3" <?= (App::$showPerPage <= 3) ? 'selected' : '' ?>>3</option>
+                    <option value="5" <?= (App::$showPerPage > 3 && App::$showPerPage <= 5) ? 'selected' : '' ?>>5</option>
+                    <option value="12" <?= (App::$showPerPage > 5 && App::$showPerPage <= 12) ? 'selected' : '' ?>>12</option>
+                    <option value="34" <?= (App::$showPerPage > 12) ? 'selected' : '' ?>>34</option>
                 </select>
             </div>
             <div class="col form-group mb-0">
