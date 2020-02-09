@@ -8,4 +8,5 @@ include 'core/controller.php';
 include 'models/core_model.php';
 include 'core/app.php';
 
+// стартуем
 App::start();

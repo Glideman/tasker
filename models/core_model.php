@@ -1,5 +1,7 @@
 <?php
 
+// в этом классе определены методы для коннекта к БД
+// и подключения отдельных моделей для работы с таблицами
 class Core_model {
 
 
@@ -16,7 +18,6 @@ class Core_model {
 
 	// подключение модели для работы с таблицами
 	public static function new_model($name) {
-		// подключаем файл с классом модели, если такой есть
 		$model_class = 'model_'.$name;
 		$model_path = 'models/'.$model_class.'.php';
 		if(file_exists($model_path)) require_once $model_path;
