@@ -7,6 +7,8 @@ class Controller_newtask extends Controller {
 		parent::__construct();
 	}
 
+
+
 	function action_default() {
 		App::$pageTitle = "Добавление задачи";
 		$this->view->generate('view_newtask.php', 'template.php');

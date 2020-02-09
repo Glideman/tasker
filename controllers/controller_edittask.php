@@ -8,6 +8,8 @@ class Controller_edittask extends Controller {
 		$this->model = Core_model::new_model('task');
 	}
 
+
+
 	function action_default() {
 		$params = array(
 			'taskid' => $_GET['taskid']

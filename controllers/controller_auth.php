@@ -7,6 +7,8 @@ class Controller_auth extends Controller {
 		parent::__construct();
 	}
 
+
+
 	function action_default() {
 		App::$pageTitle = "Вход";
 		$this->view->generate('view_auth.php', 'template.php');

@@ -9,6 +9,7 @@ class Controller_main extends Controller {
 	}
 
 
+
 	function action_default() {
 		// общее количество задач в бд
 		$result = null;
@@ -56,10 +57,4 @@ class Controller_main extends Controller {
 	}
 
 
-
-	/*function action_setorder() {
-		$_SESSION['order']  = $_POST['order'];
-		$_SESSION['bw']     = $_POST['bw'];
-		echo 'window.location.href = "main?page='.$_SESSION['page'].'";'; // редирект
-	}*/
 }

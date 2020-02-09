@@ -11,8 +11,10 @@ class Controller_task extends Controller {
 
 
 
+	// валидация e-mail
 	private function validate_mail($variable) {
-		return preg_match("/^([_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z0-9]+)*(\.[a-z]{2,})){0,64}$/", $variable);}
+		return preg_match("/^([_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z0-9]+)*(\.[a-z]{2,})){0,64}$/", $variable);
+	}
 
 
 
@@ -59,7 +61,8 @@ class Controller_task extends Controller {
 			}
 		}
 
-		return $file_name;}
+		return $file_name;
+	}
 
 
 
@@ -84,10 +87,12 @@ class Controller_task extends Controller {
 			}
 		}
 
-		return false;}
+		return false;
+	}
 
 
 
+	// добавление задачи
 	function action_add() {
 		$data = array(
 			'user' => is_null(App::$user) ? 'null' : App::$user->uid,
@@ -116,11 +121,14 @@ class Controller_task extends Controller {
 			return;
 		}
 
-		echo 'window.location.href = "/";'; // редирект, если всё прошло успешно
+		echo 'window.location.href = "/";'; // переходим на главную
 	}
 
 
 
+	// изменение статуса
+	// в текущей реализации не используется
+	// делал для того, что-бы можно было менять статус с главной
 	function action_status() {
 		$data = array(
 			'taskid' => $_POST['taskid'],
@@ -140,11 +148,12 @@ class Controller_task extends Controller {
 			return;
 		}
 
-		echo 'window.location.href = "/";'; // редирект, если всё прошло успешно
+		echo 'window.location.href = "/";'; // переходим на главную
 	}
 
 
 
+	// удаление картинки
 	function action_deleteimg() {
 		$data = array(
 			'taskid' => isset($_GET['taskid']) ? $_GET['taskid'] : $_POST['taskid']
@@ -179,11 +188,12 @@ class Controller_task extends Controller {
 			if(file_exists($task->imgpath))
 				unlink('img/'.$task->imgpath);
 
-		echo '<script>window.location.href = "/edittask?taskid='.$task->taskid.'";</script>'; // редирект, если всё прошло успешно
+		echo '<script>window.location.href = "/edittask?taskid='.$task->taskid.'";</script>'; // переходим на страницу редактирования
 	}
 
 
 
+	// обновление данных задачи
 	function action_update() {
 		$data = array(
 			'taskid' => $_POST['taskid'],
@@ -218,11 +228,12 @@ class Controller_task extends Controller {
 			return;
 		}
 
-		echo 'window.location.href = "/";'; // редирект, если всё прошло успешно
+		echo 'window.location.href = "/";'; // переходим на главную
 	}
 
 
 
+	// удаление задачи
 	function action_delete() {
 		$data = array(
 			'taskid' => isset($_GET['taskid']) ? $_GET['taskid'] : $_POST['taskid']
@@ -241,7 +252,7 @@ class Controller_task extends Controller {
 			return;
 		}
 
-		echo '<script>window.location.href = "/";</script>'; // редирект, если всё прошло успешно
+		echo '<script>window.location.href = "/";</script>'; // переходим на главную
 	}
 
 
